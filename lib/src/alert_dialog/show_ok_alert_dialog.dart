@@ -48,6 +48,7 @@ Future<OkCancelResult> showOkAlertDialog({
         label: okLabel ?? MaterialLocalizations.of(context).okButtonLabel,
         key: OkCancelResult.ok,
         isDefaultAction: isMacOS,
+        buttonColor: const Color(0xFF387ef5),
       ),
     ],
   );

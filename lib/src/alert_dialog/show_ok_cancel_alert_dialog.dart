@@ -59,16 +59,18 @@ Future<OkCancelResult> showOkCancelAlertDialog({
     builder: builder,
     actions: [
       AlertDialogAction(
-        label: cancelLabel ?? defaultCancelLabel(),
-        key: OkCancelResult.cancel,
-        isDefaultAction: defaultType == OkCancelAlertDefaultType.cancel,
-      ),
-      AlertDialogAction(
         label: okLabel ?? MaterialLocalizations.of(context).okButtonLabel,
         key: OkCancelResult.ok,
         isDefaultAction:
             defaultType == null || defaultType == OkCancelAlertDefaultType.ok,
         isDestructiveAction: isDestructiveAction,
+        buttonColor: const Color(0xFF33cd5f),
+      ),
+      AlertDialogAction(
+        label: cancelLabel ?? defaultCancelLabel(),
+        key: OkCancelResult.cancel,
+        isDefaultAction: defaultType == OkCancelAlertDefaultType.cancel,
+        buttonColor: const Color(0xFFef473a),
       ),
     ],
   );

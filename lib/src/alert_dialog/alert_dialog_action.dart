@@ -13,6 +13,7 @@ class AlertDialogAction<T> {
     this.isDefaultAction = false,
     this.isDestructiveAction = false,
     this.textStyle = const TextStyle(),
+    this.buttonColor,
   });
 
   final T key;
@@ -28,6 +29,8 @@ class AlertDialogAction<T> {
   ///
   /// Recommended to keep null.
   final TextStyle textStyle;
+
+  final Color? buttonColor;
 }
 
 extension AlertDialogActionEx<T> on AlertDialogAction<T> {
@@ -66,7 +69,8 @@ extension AlertDialogActionEx<T> on AlertDialogAction<T> {
     required Color destructiveColor,
     required bool fullyCapitalized,
   }) {
-    return TextButton(
+    return ElevatedButton(
+      style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(buttonColor)),
       child: Text(
         fullyCapitalized ? label.toUpperCase() : label,
         style: textStyle.copyWith(
