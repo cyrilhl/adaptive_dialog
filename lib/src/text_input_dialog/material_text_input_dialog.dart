@@ -144,6 +144,13 @@ class _MaterialTextInputDialogState extends State<MaterialTextInputDialog> {
             ],
           ),
           actions: [
+            ElevatedButton(
+              onPressed: submitIfValid,
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Color(0xFF387ef5)),
+              ),
+              child: okText,
+            ),
             TextButton(
               onPressed: cancel,
               child: Text(
@@ -152,10 +159,6 @@ class _MaterialTextInputDialogState extends State<MaterialTextInputDialog> {
                         : cancelLabel) ??
                     MaterialLocalizations.of(context).cancelButtonLabel,
               ),
-            ),
-            TextButton(
-              onPressed: submitIfValid,
-              child: okText,
             ),
           ],
           actionsOverflowDirection: widget.actionsOverflowDirection,
