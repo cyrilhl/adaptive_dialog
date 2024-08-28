@@ -19,7 +19,7 @@ Future<List<String>?> showTextInputDialog({
   String? okLabel,
   String? cancelLabel,
   bool isDestructiveAction = false,
-  bool barrierDismissible = true,
+  bool barrierDismissible = false,
   AdaptiveStyle? style,
   bool useRootNavigator = true,
   VerticalDirection actionsOverflowDirection = VerticalDirection.up,

@@ -12,7 +12,7 @@ Future<OkCancelResult> showOkAlertDialog({
   String? title,
   String? message,
   String? okLabel,
-  bool barrierDismissible = true,
+  bool barrierDismissible = false,
   @Deprecated('Use `style` instead.') AdaptiveStyle? alertStyle,
   AdaptiveStyle? style,
   @Deprecated('Use `ios` instead. Will be removed in v2.')

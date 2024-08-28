@@ -25,7 +25,7 @@ Future<OkCancelResult> showOkCancelAlertDialog({
   TextStyle cancelStyle = const TextStyle(),
   OkCancelAlertDefaultType? defaultType,
   bool isDestructiveAction = false,
-  bool barrierDismissible = true,
+  bool barrierDismissible = false,
   @Deprecated('Use `style` instead.') AdaptiveStyle? alertStyle,
   AdaptiveStyle? style,
   @Deprecated('Use `ios` instead. Will be removed in v2.')
