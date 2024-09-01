@@ -98,10 +98,9 @@ class _MaterialTextInputDialogState extends State<MaterialTextInputDialog> {
       child: Form(
         key: _formKey,
         child: AlertDialog(
-          title: titleText,
+          title: Center(child: titleText),
           content: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (message != null)
                 Flexible(
@@ -144,21 +143,33 @@ class _MaterialTextInputDialogState extends State<MaterialTextInputDialog> {
             ],
           ),
           actions: [
-            ElevatedButton(
-              onPressed: submitIfValid,
-              style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Color(0xFF387ef5)),
-              ),
-              child: okText,
-            ),
-            TextButton(
-              onPressed: cancel,
-              child: Text(
-                (widget.fullyCapitalized
-                        ? cancelLabel?.toUpperCase()
-                        : cancelLabel) ??
-                    MaterialLocalizations.of(context).cancelButtonLabel,
-              ),
+            Row(
+              children: [
+                const SizedBox(width: 16),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: submitIfValid,
+                    style: const ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Color(0xFF387ef5)),
+                    ),
+                    child: okText,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: TextButton(
+                    onPressed: cancel,
+                    child: Text(
+                      (widget.fullyCapitalized
+                              ? cancelLabel?.toUpperCase()
+                              : cancelLabel) ??
+                          MaterialLocalizations.of(context).cancelButtonLabel,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+              ],
             ),
           ],
           actionsOverflowDirection: widget.actionsOverflowDirection,

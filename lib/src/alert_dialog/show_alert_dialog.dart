@@ -142,17 +142,27 @@ Future<T?> showAlertDialog<T>({
             canPop: canPop,
             onPopInvoked: onPopInvoked,
             child: AlertDialog(
-              title: titleText,
-              content: messageText,
-              actions: actions
-                  .map(
-                    (a) => a.convertToMaterialDialogAction(
-                      onPressed: (key) => pop(context: context, key: key),
-                      destructiveColor: colorScheme.error,
-                      fullyCapitalized: fullyCapitalizedForMaterial,
-                    ),
-                  )
-                  .toList(),
+              title: Center(child: titleText),
+              content: Center(child: messageText),
+              actions: [
+                Row(
+                  children: actions
+                      .map(
+                        (a) => Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: a.convertToMaterialDialogAction(
+                              onPressed: (key) =>
+                                  pop(context: context, key: key),
+                              destructiveColor: colorScheme.error,
+                              fullyCapitalized: fullyCapitalizedForMaterial,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ],
               actionsOverflowDirection: actionsOverflowDirection,
               scrollable: true,
             ),
