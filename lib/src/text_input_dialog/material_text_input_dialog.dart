@@ -9,6 +9,7 @@ class MaterialTextInputDialog extends StatefulWidget {
     required this.textFields,
     this.title,
     this.message,
+    this.messageWidget,
     this.okLabel,
     this.cancelLabel,
     this.isDestructiveAction = false,
@@ -27,6 +28,7 @@ class MaterialTextInputDialog extends StatefulWidget {
   final List<DialogTextField> textFields;
   final String? title;
   final String? message;
+  final Widget? messageWidget;
   final String? okLabel;
   final String? cancelLabel;
   final bool isDestructiveAction;
@@ -102,13 +104,13 @@ class _MaterialTextInputDialogState extends State<MaterialTextInputDialog> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (message != null)
+              if (message != null || widget.messageWidget != null)
                 Flexible(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Scrollbar(
                       child: SingleChildScrollView(
-                        child: Text(message),
+                        child: widget.messageWidget ?? Text(message ?? ''),
                       ),
                     ),
                   ),

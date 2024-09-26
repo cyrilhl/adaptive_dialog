@@ -19,6 +19,7 @@ Future<T?> showAlertDialog<T>({
   required BuildContext context,
   String? title,
   String? message,
+  Widget? messageWidget,
   List<AlertDialogAction<T>> actions = const [],
   bool barrierDismissible = true,
   AdaptiveStyle? style,
@@ -60,7 +61,7 @@ Future<T?> showAlertDialog<T>({
   }
 
   final titleText = title == null ? null : Text(title);
-  final messageText = message == null ? null : Text(message);
+  final messageText = messageWidget ?? Text(message ?? '');
 
   final effectiveStyle = adaptiveStyle.effectiveStyle(theme);
   switch (effectiveStyle) {
